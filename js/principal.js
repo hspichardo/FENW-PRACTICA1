@@ -56,12 +56,11 @@ $(document).ready(function () {
         window.document.location.href = 'index.html';
     });
     
-    function validarDatos() {
         function validateEmail(email) {
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         }
-    }
+    
 $(document).on('click','#btnIniciarSesion',function () {
     let usuario = $('#txtUser').val();
     let password = $('#txtPassword').val();
@@ -84,7 +83,7 @@ $(document).on('click','#btnIniciarSesion',function () {
     $(document).on('blur','#txtRPassword', function(){
         let pass1 = $('#txtRPassword');
         let pass2 = $('#txtPasswordRP');
-        if(pass1.val() != pass2.val()){
+        if(pass1.val() != pass2.val() || pass1.val()=='' || pass2.val()==''){
             pass1.css("border-color","red");
             pass2.css("border-color","red");
         }
@@ -105,4 +104,16 @@ $(document).on('click','#btnIniciarSesion',function () {
             pass2.css("border-color","green");
         }
     });
+    $(document).on('blur','#txtEmail', function(){
+        let mail = $('#txtEmail');
+        
+        if(validateEmail(mail.val())){
+            mail.css("border-color","green");
+        }
+        else{
+            mail.css("border-color","red");
+        }
+    });
+    
+    
 });
