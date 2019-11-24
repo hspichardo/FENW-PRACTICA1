@@ -81,4 +81,28 @@ $(document).on('click','#btnIniciarSesion',function () {
        // alert(sessionStorage.getItem('tokenAPI'));
     });
 });
+    $(document).on('blur','#txtRPassword', function(){
+        let pass1 = $('#txtRPassword');
+        let pass2 = $('#txtPasswordRP');
+        if(pass1.val() != pass2.val()){
+            pass1.css("border-color","red");
+            pass2.css("border-color","red");
+        }
+        else{
+            pass1.css("border-color","green");
+            pass2.css("border-color","green");
+        }
+    });
+    $(document).on('blur','#txtPasswordRP', function(){
+        let pass1 = $('#txtRPassword');
+        let pass2 = $('#txtPasswordRP');
+        if(pass1.val() != pass2.val()){
+            pass1.css("border-color","red");
+            pass2.css("border-color","red");
+        }
+        else{
+            pass1.css("border-color","green");
+            pass2.css("border-color","green");
+        }
+    });
 });
